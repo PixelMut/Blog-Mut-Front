@@ -5,15 +5,25 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # STEPS
 
 => 1st STEP :
- - Implementation of components
- - Implementation of routes
- - Implementation of services
- - Implementation of mockups
- - Custom CSS
+  - Implementation of components
+  - Implementation of routes
+  - Implementation of services
+  - Implementation of mockups
+  - Custom CSS
  
 => 2nd STEP:
- - Meta 
- - Open Graph Tags 
+  - Set title 
+  - Set Meta tags
+  - Set Open Graph Tags (article component)
+  - Important for search engines and social media platforms
+  - Only client side ( need to be server side to work online )
+ 
+=> 3rd STEP :
+  - Server Side rendering :
+    -- SEO (Search engine Optimization)
+    -- Meta & OG tags in page source
+    -- Better Performances
+  
 
 ## Development server
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Article} from '../shared/article';
-import {ARTICLES} from '../shared/mock-articles';
 import {ArticleService} from '../shared/services/article.service';
+import {Title} from '@angular/platform-browser';
+import {SharedService} from '../shared/services/shared.service';
 
 @Component({
   selector: 'app-article-list',
@@ -12,16 +13,19 @@ export class ArticleListComponent implements OnInit {
 
   articles: Article[] = [];
 
-  constructor(private articlesrv: ArticleService) { }
+  constructor(private articlesrv: ArticleService,
+              private titleSrv: Title,
+              private sharedSrv: SharedService) { }
 
   ngOnInit(): void {
+    this.titleSrv.setTitle(`${this.sharedSrv.blogTitle}`);
     this.getArticles();
   }
 
   getArticles(): void{
     this.articlesrv
       .getArticles()
-      .subscribe(articles =>( this.articles = articles));
+      .subscribe(articles => ( this.articles = articles));
   }
 
 }
