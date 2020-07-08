@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Article} from '../shared/article';
+import {ARTICLES} from '../shared/mock-articles';
+import {ArticleService} from '../shared/services/article.service';
 
 @Component({
   selector: 'app-article-list',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticleListComponent implements OnInit {
 
-  constructor() { }
+  articles: Article[] = [];
+
+  constructor(private articlesrv: ArticleService) { }
 
   ngOnInit(): void {
+    this.getArticles();
+  }
+
+  getArticles(): void{
+    this.articlesrv
+      .getArticles()
+      .subscribe(articles =>( this.articles = articles));
   }
 
 }
